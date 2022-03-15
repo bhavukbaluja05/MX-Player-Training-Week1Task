@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        MX Player Week-1 Assignment
+    </title>
+    <style>
+        h3{
+            color:rgb(255, 0, 140);
+            font-family: "Helvetica"
+        }
+        hr{
+            background-color:white;
+        }
+        h5{
+            color:white;
+            font-family: "Lucida Console";
+        }
+        h2{
+            color:yellow;
+            font-family: "Lucida Console";
+            font-size: 28px;
+        }
+        h1{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body style="background-color:black">
+    <center>
+    <h1 style="color:blue">
+        MX PLAYER       
+    </h1>
+    <h2>
+        ******Week-1 Assignment******
+    </h2>
+        </center>
+    <script>
+    document.write("<h3>1. Adding the odd elements upto 20 in a array:</h3><h5>");
+        var a=[];
+        for(var i=0;i<20;i++)
+        {
+            if(i%2!=0)
+            {
+                a.push(i);
+            }
+        }
+        document.write("&emsp;&emsp;&nbsp;");
+        document.write(a+"<br><hr>");
+        
+    document.write("<\h5><h3>2. Banking class with the three functions:</h3><h5>");
+    function banking()
+    {
+        this.balance=0;
+        this.openAccount=function(openbalance)
+        {
+            this.balance=openbalance;
+            document.write("&emsp;&emsp;&nbsp;");
+            document.write("Congratulations, Your Account is Opened! & Available Balance="+this.balance);
+        }
+        this.deposit=function(amount)
+        {
+            this.balance+=amount;
+            document.write("&emsp;&emsp;&nbsp;");
+            document.write("You deposited Rs."+amount+"<br>");
+            document.write("&emsp;&emsp;&nbsp;");
+            document.write("And Available Balance="+this.balance);
+        }
+        this.withdraw=function(amount)
+        {
+            if(amount>this.balance)
+            {
+                document.write("&emsp;&emsp;&nbsp;");
+                document.write("You don't have enough Balance to withdraw Rs."+amount+"!");
+            }
+            else
+            {
+                this.balance-=amount;
+                document.write("&emsp;&emsp;&nbsp;");
+                document.write("Rs."+amount+" Withdrawed Successfully!<br>");
+                document.write("&emsp;&emsp;&nbsp;");
+                document.write("And Available Balance="+this.balance);
+            }
+        }
+    }
+    var acc = new banking();
+    acc.openAccount(34500);
+    document.write("<br><br>")
+    acc.withdraw(970);
+    document.write("<br><br>")
+    acc.deposit(7000);
+    document.write("<br><br>")
+    acc.withdraw(90000);
+
+
+    document.write("<hr><\h5><h3>3. Deleting A task from a task array at the given position:</h3><h5>");
+    function deletion()
+    {
+        document.write("&emsp;&emsp;&nbsp;");
+        document.write("To Do List:<br>");
+        document.write("&emsp;&emsp;&nbsp;");
+
+        this.arr=["Coding","Eating","Jogging","Cleaning"];
+        document.write(this.arr+"<br>");
+        this.del1=function(p)
+        {
+            this.arr.splice(p,1);
+        document.write("<br>&emsp;&emsp;&nbsp;");
+        document.write("To Do List after Deletion of Element:<br>");
+        document.write("&emsp;&emsp;&nbsp;");
+        document.write(this.arr+"<br>");
+        }
+    }
+
+    var b=new deletion();
+    b.del1(2);
+
+    document.write("<hr><\h5><h3>4. Printing a Pattern:</h3><h5>");
+    var n=5;
+    document.write("&emsp;&emsp;&nbsp;");
+    for(i=n;i>0;i--)
+    {
+        for(j=0;j<i;j++)
+        {
+            document.write("*");
+        }
+        document.write("<br>");
+        document.write("&emsp;&emsp;&nbsp;");
+
+    }
+    for(i=2;i<=n;i++)
+    {
+        for(j=0;j<i;j++)
+        {
+            document.write("*");
+        }
+        document.write("<br>");
+        document.write("&emsp;&emsp;&nbsp;");
+
+    }
+    document.write("<\h5>")
+    </script>
+</body>
