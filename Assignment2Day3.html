@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Assignment 2
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .container form-control {
+            border-style: solid;
+        }
+    </style>
+</head>
+
+<body style="background-color: #d5dad794;">
+    <center>
+        <h1 style="color:blue">
+            MX PLAYER
+        </h1>
+        <h2>
+            <u><b>Banking App</b></u>
+        </h2>
+        <br>
+     <h6 class="card-subtitle mb-4 text-muted p-4" id="">Enter the amount & Select The Action You want to
+        perform!
+        </h6>
+    </center>
+    <div class="container">
+        <label for="amount" class="form-label">Amount</label>
+        <input type="number" class="form-control" placeholder="Enter the Amount" id="amountValue" >
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="transaction" value="d" id="d">
+            <label class="form-check-label" for="d">
+                Deposit
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="transaction" value="w" id="w">
+            <label class="form-check-label" for="w">
+                Withdraw
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="transaction" value="c" id="c">
+            <label class="form-check-label" for="c">
+                Create Account
+            </label>
+        </div>
+        <center>
+            <button onclick="home()" class="btn btn-primary">Submit</button>
+
+            <br><br>
+
+            <div class="card footer">
+                <p class="card-subtitle mb-1 text-bold">Minimum amount required to an open account is Rs.<span id="bal"></span><br>You need to maintain the
+                    balance of Rs.5000</p>
+            </div>
+        </center>
+    </div>
+    </div>
+
+
+
+
+    <script>
+var acc = new banking();
+            
+        function home() 
+        {
+            var amount1 = document.getElementById("amountValue").value;
+            var amount=parseInt(amount1)
+            var trans = document.getElementsByName("transaction");
+            for (i = 0; i < trans.length; i++) {
+                if (trans[i].checked)
+                var transaction = trans[i].value;
+            }
+            console.log(amount + transaction);
+            if (transaction == 'c') 
+            {
+                acc.openAccount(amount);
+            }
+            else if (transaction == 'd') 
+            {
+                acc.deposit(amount);
+            }
+            else if (transaction == 'w') 
+            {
+                acc.withdraw(amount);
+            }
+        }
+
+        function banking() 
+        {
+            this.balance=0;
+            document.getElementById("bal").innerHTML=5000;
+            console.log("this is data " + typeof(data));
+            console.log("this is data " + typeof(this.balance));
+            this.openAccount = function (openbalance) {
+                if (openbalance < 5000) {
+                    alert("Minimum Amount required to open the Account is Rs.5000 but you only entered Rs." + openbalance);
+                }
+                else {
+                    this.balance = openbalance;
+                    alert("Congratulations, Your Account is Opened! & Available Balance=" + this.balance);
+                }
+            }
+            this.deposit = function (amount) {
+                this.balance += amount;
+                alert("You deposited Rs." + amount + "\nAnd Available Balance is Rs." + this.balance);
+            }
+            this.withdraw = function (amount) {
+                if (amount > this.balance) {
+                    alert("You don't have enough Balance to withdraw Rs." + amount + "!");
+                }
+                else {
+                    this.balance -= amount;
+                    alert("Rs." + amount + " Withdrawed Successfully!\nAnd Available Balance is Rs." + this.balance);
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
